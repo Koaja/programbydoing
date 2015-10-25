@@ -12,21 +12,25 @@ public class Blackjack {
 		Random rng = new Random();
 
 		Player player = new Player("Dealer");
-		HitOrStay play = new HitOrStay();
 		DrawCards playerCards = new DrawCards();
 		DrawCards dealerCards = new DrawCards();
 
 		String playerName;
 		String dealerName;
-		String playHand;
+		String userChoice;
+
+		int playerTotal;
+		int dealerTotal;
 
 		playerCards.setCardOne(2 + rng.nextInt(10));
 		playerCards.setCardTwo(2 + rng.nextInt(10));
-		
+
 		dealerCards.setCardOne(2 + rng.nextInt(10));
 		dealerCards.setCardTwo(2 + rng.nextInt(10));
-		
-		boolean gameOn = true;
+		dealerTotal = dealerCards.getDealerTotal();
+
+		playerTotal = playerCards.getPlayerTotal();
+		dealerTotal = dealerCards.getDealerTotal();
 
 		// Assign a name to the player
 		System.out.println("Enter your name : ");
@@ -34,24 +38,67 @@ public class Blackjack {
 
 		// Get player names
 		playerName = player.getplayerName();
-		dealerName = player.getDealername();
-
-		// Greet the player
-		System.out.println("Welcome " + playerName + " to Koaja's Blackjack program!");
+		dealerName = player.getDealername(); // Greet the player
+		System.out.println("Welcome " + playerName + " to Koaja's Blackjack program!\n");
 
 		// Draw cards for player
-		playerCards.playerhand();
-		// Draw cards for dealer
-		dealerCards.dealerHand(dealerName);
-		// Start the game
+		System.out.println("You got a " + playerCards.getCardOne() + " and a " + playerCards.getCardTwo());
+		System.out.println("Your total is : " + playerCards.getPlayerTotal() + "\n");
 
-		//
-		while (gameOn) {
-			System.out.println("Would you like to 'hit' or 'stay' ");
-			playHand = input.nextLine();
-			play.playerHitOrStay(playHand);
+		// Draw cards for dealer
+		System.out.println(dealerName + " has a " + dealerCards.getCardOne() + " showing, and a hidden card.");
+		System.out.println("His total is hidden, too.\n");
+
+		// Start the game
+		do {
+			System.out.print("Would you like to 'hit' or 'stay' ");
+			userChoice = input.nextLine();
+			if (userChoice.equals("hit")) {
+				int playerCardThree = 2 + rng.nextInt(10);
+				System.out.println("You drew " + playerCardThree);
+				System.out.println("Your total is now : *" + (playerTotal + playerCardThree) + "*\n");
+				playerTotal += playerCardThree;
+				if (playerTotal > 21) {
+					System.out.println("Your total is was 21. \n");
+					System.out.println("*************");
+					System.out.println(dealerName + " WINS.");
+					System.out.println("*************");
+					System.exit(1);
+				}
+			} else if (userChoice.equals("stay")) {
+				System.out.println(dealerName + "s turn.\n");
+				break;
+			}
+		} while (!userChoice.equals("stay"));
+
+		System.out.println(dealerName + " s hidden card was " + dealerCards.getCardTwo());
+		System.out.println("His total was " + dealerCards.getDealerTotal() + "\n");
+		while (dealerTotal <= 15) {
+			System.out.println(dealerName + " chooses to hit.");
+			int dealerCardThree = 2 + rng.nextInt(10);
+			System.out.println(dealerName + " draws a " + dealerCardThree);
+			System.out.println("His total is now : *" + (dealerTotal + dealerCardThree) + "*\n");
+			dealerTotal += dealerCardThree;
+			if (dealerTotal > 21) {
+				System.out.println(dealerName + " total is over 21.\n");
+				System.out.println("*************");
+				System.out.println(playerName + " WINS.");
+				System.out.println("*************");
+				System.exit(1);
+			} else if (dealerTotal <= 15) {
+				System.out.println(dealerName + " decided to stay.\n");
+				break;
+			}
+		}
+		if (dealerTotal > playerTotal) {
+			System.out.println("*************");
+			System.out.println(dealerName + " WINS.");
+			System.out.println("*************");
+		} else {
+			System.out.println("*************");
+			System.out.println(playerName + " Wins");
+			System.out.println("*************");
 		}
 
 	}
-
 }

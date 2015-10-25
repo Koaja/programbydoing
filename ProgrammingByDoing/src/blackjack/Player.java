@@ -42,5 +42,4 @@ public class Player {
 			return playerTurn = true;
 		}
 	}
-
 }
