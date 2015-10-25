@@ -85,7 +85,7 @@ public class Blackjack {
 				System.out.println(playerName + " WINS.");
 				System.out.println("*************");
 				System.exit(1);
-			} else if (dealerTotal <= 15) {
+			} else if (dealerTotal >= 15) {
 				System.out.println(dealerName + " decided to stay.\n");
 				break;
 			}
@@ -94,9 +94,13 @@ public class Blackjack {
 			System.out.println("*************");
 			System.out.println(dealerName + " WINS.");
 			System.out.println("*************");
-		} else {
+		} else if (dealerTotal < playerTotal) {
 			System.out.println("*************");
 			System.out.println(playerName + " Wins");
+			System.out.println("*************");
+		} else {
+			System.out.println("*************");
+			System.out.println("Its a tie");
 			System.out.println("*************");
 		}
 
