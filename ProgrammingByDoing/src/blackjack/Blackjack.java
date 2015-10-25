@@ -13,30 +13,36 @@ public class Blackjack {
 
 		Player player = new Player("Dealer");
 		HitOrStay play = new HitOrStay();
-		DrawCardsForPlayer playerDraw = new DrawCardsForPlayer();
-		DrawCardsForDealer dealerDraw = new DrawCardsForDealer();
+		DrawCards playerCards = new DrawCards();
+		DrawCards dealerCards = new DrawCards();
+
 		String playerName;
 		String dealerName;
 		String playHand;
 
+		playerCards.setCardOne(2 + rng.nextInt(10));
+		playerCards.setCardTwo(2 + rng.nextInt(10));
+		
+		dealerCards.setCardOne(2 + rng.nextInt(10));
+		dealerCards.setCardTwo(2 + rng.nextInt(10));
+		
 		boolean gameOn = true;
 
-		// assign a name to the player
-		System.out.println("Enter your name :");
+		// Assign a name to the player
+		System.out.println("Enter your name : ");
 		player.setPlayerName(input.nextLine());
 
-		// get player names
+		// Get player names
 		playerName = player.getplayerName();
 		dealerName = player.getDealername();
 
-		// greet the player
+		// Greet the player
 		System.out.println("Welcome " + playerName + " to Koaja's Blackjack program!");
 
 		// Draw cards for player
-		playerDraw.drawCardsForPlayer();
-
+		player.playerhand();
 		// Draw cards for dealer
-		dealerDraw.drawCardsForDealer();
+		player.dealerHand(dealerName);
 		// Start the game
 
 		//

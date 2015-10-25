@@ -1,31 +1,50 @@
 package blackjack;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class DrawCards {
-	Random rng = new Random();
-	Scanner input = new Scanner(System.in);
 
-	protected int cardOne;
-	protected int cardTwo;
-	protected int cardsDrewSum;
-
-	protected int hitCard = 2 + rng.nextInt(10);
-
-	protected int getCardOne() {
-		return cardOne;
+	private int cardOne;
+	private int cardTwo;
+	private int hitCard;
+	private int playerTotal;
+	
+	public DrawCards(){
+		
 	}
 
-	protected int getCardTwo() {
-		return cardTwo;
+	public int getCardOne() {
+		return this.cardOne;
 	}
 
-	protected void setTotal(int cardOne, int cardTwo) {
-		cardsDrewSum = this.cardOne + this.cardTwo;
+	public int getCardTwo() {
+		return this.cardTwo;
 	}
 
-	protected int getTotal() {
-		return cardsDrewSum;
+	public int getHitCard() {
+		return hitCard;
+	}
+
+	public int getPlayerTotal() {
+		this.playerTotal = cardOne + cardTwo;
+		return playerTotal;
+	}
+
+	public int getPlayerTotalAfterHit() {
+		return hitCard;
+	}
+
+	public void setCardOne(int cardOne) {
+		this.cardOne = cardOne;
+	}
+
+	public void setCardTwo(int cardTwo) {
+		this.cardTwo = cardTwo;
+	}
+
+	public void setHitCard(int hitCard) {
+		this.hitCard = hitCard;
+	}
+
+	public void setPlayerTotalAfterhit(int hitCard) {
+		this.hitCard = hitCard;
 	}
 }
