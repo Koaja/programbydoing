@@ -11,7 +11,7 @@ public class Player {
 
 	DrawCards playerCards = new DrawCards();
 	DrawCards dealerCards = new DrawCards();
-	
+
 	boolean playerTurn = true;
 
 	public Player(String dealer) {
@@ -43,14 +43,4 @@ public class Player {
 		}
 	}
 
-	public void dealerHand(String dealerName) {
-		System.out.println(dealerName + " has a " + dealerCards.getCardOne() + " showing, and a hidden card.");
-		dealerCards.getCardTwo();
-		System.out.println("His total is hidden, too.");
-	}
-
-	public void playerhand() {
-		System.out.println("You got a " + playerCards.getCardOne() + " and a " + playerCards.getCardTwo());
-		System.out.println("Your total is : " + playerCards.getPlayerTotal());
-	}
 }

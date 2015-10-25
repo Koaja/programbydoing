@@ -10,7 +10,7 @@ public class HitOrStay {
 
 	DrawCards draw = new DrawCards();
 	
-	int total = draw.getPlayerTotal();
+	int total = draw.getDealerTotal();
 
 	String playerChoice = " ";
 
@@ -23,7 +23,7 @@ public class HitOrStay {
 				System.out.println("You drew " + cardThree);
 				System.out.println("Your total is now : " + (total + cardThree));
 				total += cardThree;
-				input.next();
+				//input.next();
 			}
 			break;
 		}

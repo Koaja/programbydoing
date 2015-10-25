@@ -40,9 +40,9 @@ public class Blackjack {
 		System.out.println("Welcome " + playerName + " to Koaja's Blackjack program!");
 
 		// Draw cards for player
-		player.playerhand();
+		playerCards.playerhand();
 		// Draw cards for dealer
-		player.dealerHand(dealerName);
+		dealerCards.dealerHand(dealerName);
 		// Start the game
 
 		//
