@@ -15,7 +15,7 @@ public class MoreFillInMethods {
 		System.out.println("First: " + superrand(lo, hi));
 		superrand(hi, lo); // this time, put hi first
 		System.out.println("Second: " + superrand(hi, lo));
-		if (val1 == val2)
+		if (lo == hi)
 			System.out.println("Hey!  They were the same!");
 		else
 			System.out.println("They were not the same.");
@@ -30,15 +30,14 @@ public class MoreFillInMethods {
 		System.out.println();
 		System.out.println("Let's figure a project grade.");
 		int a = 4, b = 3, c = 4, d = 5, e = 2, f = 1, result = 999;
-		project_grade(a, b, b, d, e, f);
-		System.out.println("434521 -> " + result);
+		// project_grade(a, b, b, d, e, f);
+		System.out.println("434521 -> " + project_grade(a, b, b, d, e, f));
 
 		System.out.println();
 		System.out.print("Finally, some easy ones.");
 
 		String nombre = "ERROR";
-		get_name();
-		System.out.println("Hi, " + nombre);
+		System.out.println("Hi, " + get_name());
 
 		System.out.println();
 		System.out.println("Do you feel lucky, punk?");

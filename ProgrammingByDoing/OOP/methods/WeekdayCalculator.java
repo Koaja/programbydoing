@@ -59,7 +59,7 @@ public class WeekdayCalculator {
 
 		// bunch of calculations go here
 
-		date = month_name(mm) + ", " + yyyy;
+		// date = month_name(mm) + ", " + yyyy;
 
 		return date;
 	}
