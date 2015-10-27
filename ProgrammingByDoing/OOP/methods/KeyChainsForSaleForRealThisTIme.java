@@ -22,6 +22,7 @@ public class KeyChainsForSaleForRealThisTIme {
 		int currentNumberOfKeyschains;
 		int pricePerKeyChain = 10;
 		boolean loop = true;
+
 		System.out.println("Ye olde Keychain Shoppe\n");
 
 		while (loop) {
@@ -31,11 +32,14 @@ public class KeyChainsForSaleForRealThisTIme {
 			userChoice = input.nextInt();
 			System.out.println();
 			if (userChoice == 1) {
-			
-				add_keychains(input.nextInt());
+				int keysToAdd = input.nextInt();
+				currentNumberOfKeyschains = add_keychains(keysToAdd);
+				System.out.println("You have " + currentNumberOfKeyschains + "keychains. How many to add? ");
 			} else if (userChoice == 2) {
+				int keysToRemove = input.nextInt();
+				currentNumberOfKeyschains = remove_keychains(keysToRemove);
 				System.out.println("You have " + currentNumberOfKeyschains + " keychains. How many to remove?");
-				remove_keychains();
+
 			} else if (userChoice == 3) {
 				view_order();
 			} else if (userChoice == 4) {
@@ -46,15 +50,12 @@ public class KeyChainsForSaleForRealThisTIme {
 
 	}
 
-	public static int add_keychains(int numberOfKeysToAdd) {
-		currentNumberOfKeyschains = add_keychains(numberOfKeysToAdd);
-		System.out.println("You have " + currentNumberOfKeyschains + " keychains. How many to add?");
-
-		return numberOfKeysToAdd;
+	public static int add_keychains(int numberOfKeys) {
+		return numberOfKeys;
 	}
 
-	public static void remove_keychains(int numberOfKeysToRemove) {
-		System.out.println();
+	public static int remove_keychains(int numberOfKeysToRemove) {
+		return numberOfKeysToRemove;
 	}
 
 	public static void view_order() {
