@@ -20,7 +20,7 @@ public class KeyChainsForSaleForRealThisTIme {
 
 		int userChoice;
 		int currentNumberOfKeyschains;
-		int pricePerKeyChain = 10;
+		final int PRICE_PER_KEYCHAIN = 10;
 		boolean loop = true;
 
 		System.out.println("Ye olde Keychain Shoppe\n");
@@ -51,6 +51,8 @@ public class KeyChainsForSaleForRealThisTIme {
 	}
 
 	public static int add_keychains(int numberOfKeys) {
+		currentNumberOfKeyschains += numberOfKeys;
+		System.out.println("You now have" + numberOfKeys);
 		return numberOfKeys;
 	}
 
