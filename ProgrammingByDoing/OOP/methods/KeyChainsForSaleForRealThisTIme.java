@@ -34,35 +34,45 @@ public class KeyChainsForSaleForRealThisTIme {
 			if (userChoice == 1) {
 				System.out.println("You have " + currentNumberOfKeyschains + " keychains. How many to add? ");
 				int keysToAdd = input.nextInt();
-				currentNumberOfKeyschains = add_keychains(keysToAdd);
+				currentNumberOfKeyschains = currentNumberOfKeyschains + add_keychains(keysToAdd);
+				System.out.println("You now have " + currentNumberOfKeyschains + " keychains\n");
 			} else if (userChoice == 2) {
 				System.out.println("You have " + currentNumberOfKeyschains + " keychains. How many to remove?");
 				int keysToRemove = input.nextInt();
 				currentNumberOfKeyschains = currentNumberOfKeyschains - remove_keychains(keysToRemove);
+				System.out.println("You now have " + currentNumberOfKeyschains + " keychains\n");
 			} else if (userChoice == 3) {
-				view_order();
+				view_order(currentNumberOfKeyschains, PRICE_PER_KEYCHAIN);
 			} else if (userChoice == 4) {
-				checkout();
-				loop = false;
+				checkout(currentNumberOfKeyschains, PRICE_PER_KEYCHAIN);
+				break;
 			}
 		}
 	}
 
 	public static int add_keychains(int numberOfKeys) {
-		int curentNumberOfKeys;
-		return currentNumber;
+		// int curentNumberOfKeyschains = 0;
+		// curentNumberOfKeyschains = curentNumberOfKeyschains + numberOfKeys;
+		return numberOfKeys;
 	}
 
 	public static int remove_keychains(int numberOfKeysToRemove) {
-		numberOfKeysToRemove -= numberOfKeysToRemove;
 		return numberOfKeysToRemove;
 	}
 
-	public static void view_order() {
-		System.out.println("VIEW ORDER\n");
+	public static void view_order(int currentNumberOfKeyschains, int keychainPrice) {
+		System.out.println("You currently have " + currentNumberOfKeyschains + " keychains.");
+		System.out.println("Keychains cost $" + keychainPrice + " each");
+		double orderTotal = currentNumberOfKeyschains * keychainPrice;
+		System.out.println("Total cost is $" + orderTotal);
 	}
 
-	public static void checkout() {
-		System.out.println("CHECKOUT\n");
+	public static void checkout(int currentNumberOfKeyschains, int keychainPrice) {
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("What is your name ? ");
+		String userName = input.nextLine();
+		view_order(currentNumberOfKeyschains, keychainPrice);
+		System.out.println("Thank you for your order " + userName);
 	}
 }
