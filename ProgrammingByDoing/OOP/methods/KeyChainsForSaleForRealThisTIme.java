@@ -19,7 +19,7 @@ public class KeyChainsForSaleForRealThisTIme {
 		Scanner input = new Scanner(System.in);
 
 		int userChoice;
-		int currentNumberOfKeyschains = 0;
+		int numberOfKeyschains = 0;
 		final int PRICE_PER_KEYCHAIN = 10;
 		boolean loop = true;
 
@@ -32,32 +32,40 @@ public class KeyChainsForSaleForRealThisTIme {
 			userChoice = input.nextInt();
 			System.out.println();
 			if (userChoice == 1) {
-				System.out.println("You have " + currentNumberOfKeyschains + " keychains. How many to add? ");
-				int keysToAdd = input.nextInt();
-				currentNumberOfKeyschains = currentNumberOfKeyschains + add_keychains(keysToAdd);
-				System.out.println("You now have " + currentNumberOfKeyschains + " keychains\n");
+				numberOfKeyschains = add_keychains(numberOfKeyschains);
 			} else if (userChoice == 2) {
-				System.out.println("You have " + currentNumberOfKeyschains + " keychains. How many to remove?");
-				int keysToRemove = input.nextInt();
-				currentNumberOfKeyschains = currentNumberOfKeyschains - remove_keychains(keysToRemove);
-				System.out.println("You now have " + currentNumberOfKeyschains + " keychains\n");
+				numberOfKeyschains = remove_keychains(numberOfKeyschains);
 			} else if (userChoice == 3) {
-				view_order(currentNumberOfKeyschains, PRICE_PER_KEYCHAIN);
+				view_order(numberOfKeyschains, PRICE_PER_KEYCHAIN);
 			} else if (userChoice == 4) {
-				checkout(currentNumberOfKeyschains, PRICE_PER_KEYCHAIN);
+				checkout(numberOfKeyschains, PRICE_PER_KEYCHAIN);
 				break;
 			}
 		}
 	}
 
-	public static int add_keychains(int numberOfKeys) {
-		// int curentNumberOfKeyschains = 0;
-		// curentNumberOfKeyschains = curentNumberOfKeyschains + numberOfKeys;
-		return numberOfKeys;
+	public static int add_keychains(int numberOfKeychains) {
+		Scanner input = new Scanner(System.in);
+		int addedKeys = numberOfKeychains;
+		int keys;
+
+		System.out.println("You have " + addedKeys + " keychains. How many to add? ");
+		keys = input.nextInt();
+		addedKeys += keys;
+		System.out.println("You now have " + addedKeys + " keychains\n");
+		return addedKeys;
 	}
 
-	public static int remove_keychains(int numberOfKeysToRemove) {
-		return numberOfKeysToRemove;
+	public static int remove_keychains(int numberOfKeyschains) {
+		Scanner input = new Scanner(System.in);
+		int removedKeys = numberOfKeyschains;
+		int keys;
+
+		System.out.println("You have " + removedKeys + " keychains. How many keys to remove? ");
+		keys = input.nextInt();
+		removedKeys -= keys;
+		System.out.println("You now have " + removedKeys + " keychains\n");
+		return removedKeys;
 	}
 
 	public static void view_order(int currentNumberOfKeyschains, int keychainPrice) {
