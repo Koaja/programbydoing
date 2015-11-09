@@ -13,7 +13,7 @@ import java.util.Scanner;
     4. The user should be able to keep putting in choices until the checkout() function is called. When checkout() is finished, the program should end.
  */
 
-public class KeychainsForSale {
+public class KeyChainsForSale {
 
 	public static void add_keychains() {
 		System.out.println("ADD KEYCHAINS\n");
@@ -53,7 +53,7 @@ public class KeychainsForSale {
 				view_order();
 			} else if (userChoice == 4) {
 				checkout();
-				loop = false;
+				break;
 			}
 		}
 

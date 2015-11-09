@@ -22,14 +22,14 @@ public class Blackjack {
 		int playerTotal;
 		int dealerTotal;
 
+		// assign player cards
 		playerCards.setCardOne(2 + rng.nextInt(10));
 		playerCards.setCardTwo(2 + rng.nextInt(10));
+		playerTotal = playerCards.getPlayerTotal();
 
+		// assing dealer cards
 		dealerCards.setCardOne(2 + rng.nextInt(10));
 		dealerCards.setCardTwo(2 + rng.nextInt(10));
-		dealerTotal = dealerCards.getDealerTotal();
-
-		playerTotal = playerCards.getPlayerTotal();
 		dealerTotal = dealerCards.getDealerTotal();
 
 		// Assign a name to the player
@@ -38,7 +38,9 @@ public class Blackjack {
 
 		// Get player names
 		playerName = player.getplayerName();
-		dealerName = player.getDealername(); // Greet the player
+		dealerName = player.getDealername();
+
+		// Greet the player
 		System.out.println("Welcome " + playerName + " to Koaja's Blackjack program!\n");
 
 		// Draw cards for player
@@ -49,7 +51,7 @@ public class Blackjack {
 		System.out.println(dealerName + " has a " + dealerCards.getCardOne() + " showing, and a hidden card.");
 		System.out.println("His total is hidden, too.\n");
 
-		// Start the game
+		// Players turn
 		do {
 			System.out.print("Would you like to 'hit' or 'stay' ");
 			userChoice = input.nextLine();
@@ -71,8 +73,11 @@ public class Blackjack {
 			}
 		} while (!userChoice.equals("stay"));
 
+		// Show dealers secret card
 		System.out.println(dealerName + " s hidden card was " + dealerCards.getCardTwo());
 		System.out.println("His total was " + dealerCards.getDealerTotal() + "\n");
+
+		// Dealers turn
 		while (dealerTotal <= 15) {
 			System.out.println(dealerName + " chooses to hit.");
 			int dealerCardThree = 2 + rng.nextInt(10);
@@ -90,6 +95,7 @@ public class Blackjack {
 				break;
 			}
 		}
+		// Compare outcome
 		if (dealerTotal > playerTotal) {
 			System.out.println("*************");
 			System.out.println(dealerName + " WINS.");
