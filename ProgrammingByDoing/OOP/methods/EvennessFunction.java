@@ -3,15 +3,22 @@ package methods;
 public class EvennessFunction {
 	public static void main(String[] args) {
 
-		for (int i = 0; i < 20; i++) {
-			System.out.println(isDivisibleBy3(i));
+		for (int i = 1; i <= 20; i++) {
+			if (isEven(i) && isDivisibleBy3(i)) {
+				System.out.println(i + " <=");
+			} else if (isDivisibleBy3(i)) {
+				System.out.println(i + " =");
+			} else if (isEven(i)) {
+				System.out.println(i + " <");
+			} else {
+				System.out.println(i);
+			}
 		}
 
 	}
 
 	public static boolean isEven(int n) {
-		if (n == 2) {
-			System.out.println(n + " <");
+		if (n % 2 == 0) {
 			return true;
 		}
 
